@@ -1,0 +1,143 @@
+/* --- Color Palette & Reset --- */
+:root {
+    --bg-color: #FAF7F2;
+    --card-bg: #FFFFFF;
+    --primary-accent: #E86A75;
+    --primary-hover: #D85560;
+    --text-dark: #2C2C2C;
+    --text-heading: #6B1D2F;
+    --secondary-blue: #5D8AA8;
+    --font-main: 'Montserrat', system-ui, -apple-system, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    font-family: var(--font-main);
+    color: var(--text-dark);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- Container Layout --- */
+.container {
+    background-color: var(--card-bg);
+    padding: 50px 40px;
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(232, 106, 117, 0.15);
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+    z-index: 10;
+    position: relative;
+}
+
+h1 {
+    color: var(--text-heading);
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: var(--primary-accent);
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+/* --- Buttons --- */
+.buttons-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    min-height: 50px;
+}
+
+.button-yes {
+    background-color: var(--primary-accent);
+    color: #FFFFFF;
+    border: none;
+    padding: 12px 32px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(232, 106, 117, 0.3);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.button-yes:hover {
+    background-color: var(--primary-hover);
+    transform: scale(1.05);
+}
+
+.button-no {
+    background-color: #E0E0E0;
+    color: #666666;
+    border: none;
+    padding: 12px 32px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: position 0.2s ease;
+    z-index: 20;
+}
+
+/* --- Flower Scatter Styling & Unified Transforms --- */
+.flower {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    z-index: 1;
+    pointer-events: none;
+    transition: transform 0.3s ease;
+}
+
+/* Corrected explicitly using transform shorthand */
+.flower-1  { top: 2%;   left: 3%;   transform: rotate(-15deg) scale(1.1); }
+.flower-2  { top: 1%;   left: 45%;  transform: rotate(10deg)  scale(0.9); }
+.flower-3  { top: 2%;   right: 3%;  transform: rotate(25deg)  scale(1.2); }
+
+.flower-4  { top: 25%;  left: 1%;   transform: rotate(-35deg) scale(1.0); }
+.flower-5  { top: 28%;  right: 1%;  transform: rotate(15deg)  scale(1.1); }
+
+.flower-6  { top: 50%;  left: 2%;   transform: rotate(45deg)  scale(0.8); }
+.flower-7  { top: 52%;  right: 2%;  transform: rotate(-20deg) scale(1.1); }
+
+.flower-8  { top: 72%;  left: 1%;   transform: rotate(-10deg) scale(1.2); }
+.flower-9  { top: 70%;  right: 1%;  transform: rotate(30deg)  scale(0.9); }
+
+.flower-10 { bottom: 2%; left: 4%;   transform: rotate(18deg)  scale(1.0); }
+.flower-11 { bottom: 1%; left: 45%;  transform: rotate(-5deg)  scale(1.1); }
+.flower-12 { bottom: 2%; right: 4%;  transform: rotate(-40deg) scale(1.2); }
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .flower {
+        width: 65px;
+        height: 65px;
+    }
+    .container {
+        padding: 35px 20px;
+    }
+    h1 {
+        font-size: 1.7rem;
+    }
+}

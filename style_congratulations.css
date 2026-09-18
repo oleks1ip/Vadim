@@ -1,0 +1,145 @@
+/* --- Global Theme & Palette --- */
+:root {
+    --bg-color: #FAF7F2;          /* Cream background */
+    --card-bg: #FFFFFF;           /* Pure white card */
+    --primary-accent: #E86A75;    /* Coral Pink */
+    --primary-hover: #D85560;     /* Darker Coral */
+    --ribbon-bg: #FAD7A0;         /* Soft Peach Yellow */
+    --text-dark: #2C2C2C;         /* Main body text */
+    --text-heading: #6B1D2F;      /* Deep burgundy */
+    --font-handwriting: 'Caveat', cursive;
+    --font-main: 'Montserrat', system-ui, -apple-system, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    font-family: var(--font-main);
+    color: var(--text-dark);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow-x: hidden;
+    padding: 20px;
+}
+
+/* --- Content Card --- */
+.content-card {
+    background-color: var(--card-bg);
+    padding: 45px 35px;
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(232, 106, 117, 0.2);
+    text-align: center;
+    max-width: 550px;
+    width: 100%;
+    z-index: 10;
+    position: relative;
+    backdrop-filter: blur(5px);
+}
+
+.ribbon-tag {
+    display: inline-block;
+    background-color: var(--ribbon-bg);
+    color: var(--text-heading);
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+}
+
+h1 {
+    font-family: var(--font-handwriting);
+    font-size: 3rem;
+    color: var(--text-heading);
+    margin-bottom: 15px;
+    line-height: 1.1;
+}
+
+.description {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #555555;
+    margin-bottom: 30px;
+}
+
+/* --- Album Link Button --- */
+.album-btn {
+    display: inline-block;
+    background-color: var(--primary-accent);
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 14px 32px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(232, 106, 117, 0.3);
+    transition: all 0.3s ease;
+}
+
+.album-btn:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 22px rgba(232, 106, 117, 0.4);
+}
+
+/* --- Flowers Scattering & Rotations --- */
+.flowers-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.flower {
+    position: absolute;
+    width: 110px;
+    height: 110px;
+    object-fit: contain;
+    z-index: 1;
+    transition: transform 0.3s ease;
+}
+
+/* Precise flower positions around the screen edges */
+.flower-1  { top: 3%;   left: 3%;   transform: rotate(-20deg) scale(1.1); }
+.flower-2  { top: 2%;   left: 46%;  transform: rotate(15deg)  scale(0.95); }
+.flower-3  { top: 3%;   right: 3%;  transform: rotate(30deg)  scale(1.2); }
+
+.flower-4  { top: 28%;  left: 2%;   transform: rotate(-35deg) scale(1.0); }
+.flower-5  { top: 30%;  right: 2%;  transform: rotate(20deg)  scale(1.1); }
+
+.flower-6  { top: 52%;  left: 3%;   transform: rotate(45deg)  scale(0.85); }
+.flower-7  { top: 54%;  right: 3%;  transform: rotate(-15deg) scale(1.05); }
+
+.flower-8  { top: 75%;  left: 2%;   transform: rotate(-10deg) scale(1.15); }
+.flower-9  { top: 73%;  right: 2%;  transform: rotate(35deg)  scale(0.9); }
+
+.flower-10 { bottom: 3%; left: 4%;   transform: rotate(22deg)  scale(1.0); }
+.flower-11 { bottom: 2%; left: 48%;  transform: rotate(-12deg) scale(1.1); }
+.flower-12 { bottom: 3%; right: 4%;  transform: rotate(-45deg) scale(1.25); }
+
+/* Mobile Adjustments */
+@media (max-width: 600px) {
+    .flower {
+        width: 65px;
+        height: 65px;
+    }
+    .content-card {
+        padding: 30px 20px;
+    }
+    h1 {
+        font-size: 2.3rem;
+    }
+}

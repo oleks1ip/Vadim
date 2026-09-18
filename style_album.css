@@ -1,0 +1,117 @@
+/* --- Album Page Styles --- */
+.album-page {
+    /* Allow scrolling down through all photos */
+    overflow-y: auto !important; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 20px;
+}
+
+.album-header {
+    text-align: center;
+    margin-bottom: 40px;
+    z-index: 10;
+}
+
+.album-header h1 {
+    font-family: var(--font-handwriting);
+    font-size: 3.8rem;
+    color: var(--text-heading);
+    margin-bottom: 5px;
+}
+
+.album-header p {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+/* --- Larger Photo Grid --- */
+.gallery-container {
+    display: grid;
+    /* Increased minimum width from 220px to 280px to make images bigger */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 35px;
+    max-width: 1100px;
+    width: 100%;
+    z-index: 10;
+    margin-bottom: 60px;
+}
+
+/* --- Bigger Polaroid Card Design --- */
+.polaroid {
+    background-color: #FFFFFF;
+    padding: 16px 16px 45px 16px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    cursor: pointer;
+}
+
+.polaroid img {
+    width: 100%;
+    /* Increased height from 220px to 300px for larger photos */
+    height: 300px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+/* Scrapbook Rotations */
+.polaroid:nth-child(odd) { transform: rotate(-2.5deg); }
+.polaroid:nth-child(even) { transform: rotate(2.5deg); }
+.polaroid:nth-child(3n) { transform: rotate(-3.5deg); }
+.polaroid:nth-child(5n) { transform: rotate(4deg); }
+
+/* Hover Animation */
+.polaroid:hover {
+    transform: translateY(-10deg) scale(1.04) rotate(0deg) !important;
+    box-shadow: 0 18px 35px rgba(232, 106, 117, 0.3);
+    z-index: 12;
+}
+
+/* --- Fixed Screen Edge Flowers (Matches Landing Page) --- */
+.flowers-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none; /* Let clicks pass through to photos */
+    z-index: 1;
+}
+
+.flower {
+    position: absolute;
+    width: 95px;
+    height: 95px;
+    object-fit: contain;
+}
+
+/* Edge Positions & Transformations */
+.flower-1  { top: 3%;   left: 3%;   transform: rotate(-20deg) scale(1.1); }
+.flower-2  { top: 2%;   left: 48%;  transform: rotate(15deg)  scale(0.95); }
+.flower-3  { top: 3%;   right: 3%;  transform: rotate(30deg)  scale(1.2); }
+
+.flower-4  { top: 30%;  left: 3%;   transform: rotate(-35deg) scale(1.0); }
+.flower-5  { top: 30%;  right: 3%;  transform: rotate(20deg)  scale(1.1); }
+
+.flower-6  { top: 55%;  left: 3%;   transform: rotate(45deg)  scale(0.85); }
+.flower-7  { top: 55%;  right: 3%;  transform: rotate(-15deg) scale(1.05); }
+
+.flower-8  { top: 78%;  left: 3%;   transform: rotate(-10deg) scale(1.15); }
+.flower-9  { top: 78%;  right: 3%;  transform: rotate(35deg)  scale(0.9); }
+
+.flower-10 { bottom: 3%; left: 4%;   transform: rotate(22deg)  scale(1.0); }
+.flower-11 { bottom: 2%; left: 48%;  transform: rotate(-12deg) scale(1.1); }
+.flower-12 { bottom: 3%; right: 4%;  transform: rotate(-45deg) scale(1.25); }
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .polaroid img {
+        height: 240px; /* Scaled down for mobile screens */
+    }
+    .flower {
+        width: 60px;
+        height: 60px;
+    }
+}
